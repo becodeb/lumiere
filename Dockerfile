@@ -4,8 +4,7 @@ FROM node:20-slim AS builder
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-RUN npm ci --omit=dev --ignore-scripts && \
-    npm ci --only=dev --ignore-scripts
+RUN npm ci
 
 COPY . .
 RUN npm run build
